@@ -233,6 +233,7 @@
             color: #666;
             margin-top: -15px;
         }
+
         .contact-button {
             position: fixed;
             bottom: 30px;
@@ -378,7 +379,7 @@
             }
         }
 
-.footer {
+        .footer {
             text-align: center;
             padding: 40px 0;
             color: #333;
@@ -396,9 +397,31 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
+        .app-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .app-links a {
+            display: flex;
+            align-items: center;
+            /* vertical center */
+            gap: 8px;
+            /* space between img and text */
+            text-decoration: none;
+            /* optional */
+            margin-bottom: 20px;
+        }
+
         .app-links img {
-            width: 120px;
-            margin: 10px;
+            width: 30px;
+        }
+
+        .app-links p2 {
+            font-size: 16px;
+            color: #333
+                /* adjust color */
         }
 
         .list-container {
@@ -590,8 +613,13 @@
             <p><a href="https://wa.me/77761542437">WhatsApp: +7 776 154 2437</a> | <a
                     href="mailto:team@sarqyt-app.com">Email: team@sarqyt-app.com</a></p>
             <div class="app-links">
-                <a href="https://apps.apple.com/us/app/sarqyt/id6749255561"><img src="appstore.png" alt="App Store"></a>
-                <a href="error.html"><img src="google-play.png" alt="Google Play"></a>
+                <a href="https://apps.apple.com/us/app/sarqyt/id6749255561"><img src="appstore.png" alt="App Store">
+                    <p2>AppStore</p2>
+                </a>
+                <a href="error.html"><img src="google-play.png" alt="Google Play">
+                    <p2>Google Play</p2>
+                </a>
+
             </div>
             <p class="note">Все платежи проходят безопасно, данные надежно защищены.</p>
         </div>
