@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О Sarqyt</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&family=Vollkorn:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #f0f4f8);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 95%;
+            max-width: 1200px;
+            background: transparent;
+            color: #0a6b4e;
+            overflow: visible;
+        }
+
+        .hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 60px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #0A8D5E, #81c784, #FFFFFF);
+            color: #fff;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 80%;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Vollkorn', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.1;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 200;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .hero .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .hero .buttons button {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            background: #fff;
+            color: #139c75;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero .buttons button:hover {
+            transform: scale(1.05);
+            background: #f0f4f8;
+        }
+
+        .content-section {
+            padding: 80px 60px;
+            background: #fff;
+            border-radius: 50px;
+            margin-top: -100px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-family: 'Vollkorn', serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0a6b4e;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #139c75, #81c784);
+            margin: 10px auto;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            margin: 15px 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .list-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 24px;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        ul,
+        ol {
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.7;
+            margin: 15px 0;
+            padding-left: 0;
+            list-style: none;
+            display: grid;
+            gap: 20px;
+        }
+
+        ul li,
+        ol li {
+            position: relative;
+            padding: 20px 20px 20px 68px;
+            color: #0a6b4e;
+            background: linear-gradient(95deg, #f6fef9 0%, #ffffff 100%);
+            border-radius: 14px;
+            border-left: 3px solid #3ab08a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+        }
+
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            background: #3ab08a;
+            color: #fff;
+            border-radius: 12px;
+            text-align: center;
+            line-height: 34px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        ol {
+            counter-reset: step;
+            opacity: 0;
+            animation: fadeInList 0.8s ease-out 0.2s forwards;
+        }
+
+        ol li {
+            counter-increment: step;
+            opacity: 0;
+            transform: translateX(-30px) scale(0.98);
+            animation: slideInItem 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            animation-delay: calc(0.15s * var(--item-index));
+        }
+
+        ol li::before {
+            content: counter(step);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            width: 34px;
+            height: 34px;
+            background: #3ab08a;
+            color: #fff;
+            border-radius: 12px;
+            text-align: center;
+            line-height: 34px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, background 0.4s ease, border-radius 0.4s ease;
+        }
+
+        ul li:hover,
+        ol li:hover {
+            transform: translateX(0) scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+            background: linear-gradient(95deg, #e8f9f0 0%, #f6fef9 100%);
+        }
+
+        ul li:hover::before,
+        ol li:hover::before {
+            background: #26755e;
+            border-radius: 50%;
+            transform: translateY(-50%) scale(1.15) rotate(10deg);
+        }
+
+        @keyframes fadeInList {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInItem {
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .footer img {
+            width: 80px;
+            border-radius: 10px;
+        }
+
+        .footer p {
+            font-weight: 600;
+            color: #0a6b4e;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-links img {
+            width: 120px;
+            margin: 10px;
+        }
+
+        .contact-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 24px 40px 24px 30px;
+            background: linear-gradient(135deg, #139c75, #81c784);
+            color: #fff;
+            font-family: 'Manrope', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            border: none;
+            border-radius: 15px 25px 15px 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-out 2s forwards;
+            z-index: 1000;
+        }
+
+        .contact-button img {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #0a6b4e, #4caf50);
+        }
+
+        .contact-button:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding: 60px 40px;
+                justify-content: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-header {
+                justify-content: center;
+            }
+
+            .hero-logo {
+                width: 64px;
+                height: 64px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .content-section {
+                padding: 60px 40px;
+                margin-top: 40px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .list-container {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .hero .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .list-container {
+                padding: 10px;
+            }
+
+            ul,
+            ol {
+                font-size: 15px;
+            }
+
+            ul li,
+            ol li {
+                padding: 16px 16px 16px 56px;
+            }
+
+            ul li::before,
+            ol li::before {
+                width: 28px;
+                height: 28px;
+                line-height: 28px;
+                font-size: 14px;
+                left: 16px;
+            }
+
+            .contact-button {
+                padding: 16px 28px 16px 20px;
+                font-size: 16px;
+            }
+
+            .contact-button img {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        .hero .buttons .secondary {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+        }
+
+        .hero .buttons .secondary:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-header">
+                    <img src="icon-client.png" alt="Sarqyt Logo" class="hero-logo">
+                    <h1>О Sarqyt</h1>
+                </div>
+                <p>Познакомьтесь с Sarqyt — приложением, которое объединяет вкус, экономию и поддержку локальных
+                    заведений через уникальные сюрприз-пакеты.</p>
+                <div class="buttons">
+                    <button id="download-app">Скачать приложение</button>
+                    <button class="secondary" onclick="window.location.href='client.html'">Для клиентов</button>
+                    <button class="secondary" onclick="window.location.href='partner.html'">Для партнеров</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Что такое Sarqyt?</h2>
+            <div class="list-container">
+                <p>Sarqyt — это мобильное приложение, которое позволяет вам наслаждаться вкусной едой от местных кафе и
+                    ресторанов по ценам до 70% ниже обычных. Вы получаете сюрприз-пакеты — наборы свежих, качественных
+                    блюд, созданных заведениями, чтобы предложить вам лучшее. Это идеальный способ сэкономить, открыть
+                    новые гастрономические места и поддержать локальный бизнес, сохраняя при этом экологичный подход к
+                    потреблению.</p>
+                <ul>
+                    <li>Сюрприз-пакеты: Уникальные наборы блюд по сниженной цене.</li>
+                    <li>Локальные заведения: Поддержка любимых кафе и ресторанов в вашем районе.</li>
+                    <li>Экономия времени: Быстрый заказ через приложение за пару минут.</li>
+                    <li>Сообщество: Присоединяйтесь к тысячам пользователей, которые ценят вкус и разумное потребление.
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Как работает Sarqyt?</h2>
+            <div class="list-container">
+                <p>Мы сделали процесс максимально простым и удобным для пользователей и партнеров. Вот как это работает:
+                </p>
+                <ol>
+                    <li style="--item-index: 1;">Скачайте приложение Sarqyt из App Store или Google Play и
+                        зарегистрируйтесь.</li>
+                    <li style="--item-index: 2;">Просмотрите доступные сюрприз-пакеты от кафе и ресторанов поблизости.
+                    </li>
+                    <li style="--item-index: 3;">Выберите пакет, который вам нравится, и оплатите его через безопасную
+                        систему в приложении.</li>
+                    <li style="--item-index: 4;">Получите уведомление о готовности заказа и заберите его в указанное
+                        время.</li>
+                </ol>
+                <p>Каждый сюрприз-пакет — это уникальный набор блюд, который заведения готовят из свежих продуктов. Вы
+                    не знаете точного состава пакета, но это делает процесс увлекательным, а качество всегда
+                    гарантировано!</p>
+            </div>
+
+            <h2>Почему Sarqyt важен?</h2>
+            <div class="list-container">
+                <p>Sarqyt создает выгоду для всех: клиентов, заведений и окружающей среды. Вот почему нас выбирают:</p>
+                <ul>
+                    <li>Экономия: Скидки до 70% на вкусные блюда от проверенных заведений.</li>
+                    <li>Открытие новых мест: Познакомьтесь с новыми кафе и ресторанами в вашем городе.</li>
+                    <li>Поддержка бизнеса: Помогайте местным заведениям привлекать новых клиентов и увеличивать доход.
+                    </li>
+                    <li>Устойчивое потребление: Сохраняйте свежие продукты, продвигая экологичный образ жизни.</li>
+                    <li>Простота: Удобное приложение с интуитивным интерфейсом для заказа в несколько кликов.</li>
+                </ul>
+                <p>С Sarqyt вы становитесь частью сообщества, которое ценит вкус, экономию и заботу о локальных
+                    бизнесах. Более 10 000 пользователей уже наслаждаются нашими предложениями!</p>
+            </div>
+
+            <h2>Для наших партнеров</h2>
+            <div class="list-container">
+                <p>Sarqyt помогает кафе, ресторанам и магазинам получать дополнительный доход и привлекать новых
+                    клиентов. Вот как это работает для бизнеса:</p>
+                <ul>
+                    <li>Дополнительный доход: Продавайте свежие блюда через сюрприз-пакеты по сниженной цене.</li>
+                    <li>Привлечение клиентов: Новые посетители узнают о вашем заведении через приложение.</li>
+                    <li>Простая интеграция: Легко добавляйте предложения в приложение без сложных настроек.</li>
+                    <li>Маркетинг: Повышайте узнаваемость бренда благодаря видимости в Sarqyt.</li>
+                </ul>
+                <p>Sarqyt берет небольшую комиссию (10–15%) с каждого заказа, а остальная сумма поступает напрямую
+                    заведению. Это выгодное сотрудничество, которое помогает бизнесу расти!</p>
+            </div>
+
+            <h2>Что важно знать?</h2>
+            <div class="list-container">
+                <p>Чтобы получить лучший опыт с Sarqyt, вот несколько моментов, которые стоит учитывать:</p>
+                <ul>
+                    <li>Ограниченное количество: Сюрприз-пакеты доступны в ограниченном объеме, поэтому заказывайте
+                        быстро.</li>
+                    <li>Время самовывоза: Выберите удобное время для получения заказа, указанное в приложении.</li>
+                    <li>Состав пакета: Пакеты — это сюрприз, поэтому точное содержимое заранее неизвестно, но качество
+                        гарантировано.</li>
+                    <li>Локация: Убедитесь, что вы находитесь недалеко от заведения, чтобы забрать заказ вовремя.</li>
+                </ul>
+                <p>Мы постоянно работаем над улучшением приложения, чтобы сделать ваш опыт еще удобнее и увлекательнее!
+                </p>
+            </div>
+        </section>
+
+        <div class="footer">
+            <img src="icon-client.png" alt="Sarqyt Logo">
+            <p>Sarqyt</p>
+            <p>Есть вопросы? Напишите нам!</p>
+            <p><a href="https://wa.me/77761542437">WhatsApp: +7 776 154 2437</a> | <a
+                    href="mailto:team@samaritan-app.com">Email: team@samaritan-app.com</a></p>
+            <div class="app-links">
+                <a href="#"><img src="appstore.png" alt="App Store"></a>
+                <a href="#"><img src="googleplay.png" alt="Google Play"></a>
+            </div>
+            <p class="note">Все платежи проходят безопасно, данные надежно защищены.</p>
+        </div>
+    </div>
+    <a href="https://wa.me/77761542437" target="_blank" class="contact-button">
+        <img src="whatsapp.webp" alt="Sarqyt Logo">
+        <span>Связаться с нами</span>
+    </a>
+    <script>
+        const downloadBtn = document.getElementById('download-app');
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        downloadBtn.addEventListener('click', () => {
+            if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=YOUR_APP_ID";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/us/app/sarqyt/id6749255561";
+            } else {
+                window.location.href = "https://sarqyt-app.kz";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Страница не найдена - Sarqyt</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&family=Vollkorn:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #f0f4f8);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 95%;
+            max-width: 800px;
+            background: transparent;
+            color: #0a6b4e;
+            text-align: center;
+            overflow: visible;
+        }
+
+        .error-section {
+            padding: 60px 40px;
+            background: #fff;
+            border-radius: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .error-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-family: 'Vollkorn', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 20px;
+            color: #0a6b4e;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #139c75, #81c784);
+            margin: 10px auto;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.7;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .buttons a {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            background: #139c75;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons a:hover {
+            transform: scale(1.05);
+            background: #0a6b4e;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .buttons .secondary {
+            background: rgba(255, 255, 255, 0.25);
+            color: #139c75;
+            border: 1px solid #139c75;
+        }
+
+        .buttons .secondary:hover {
+            background: #f0f4f8;
+            color: #0a6b4e;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-section {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .error-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .buttons a {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="error-section">
+            <img src="icon-client.png" alt="Sarqyt Logo" class="error-logo">
+            <h1>Ой, страница не найдена!</h1>
+            <p>Похоже, вы забрели не туда. Но не переживайте, у нас есть множество вкусных предложений в приложении Sarqyt!</p>
+            <div class="buttons">
+                <a href="client.html">Вернуться на главную</a>
+                <a href="https://apps.apple.com/us/app/sarqyt/id6749255561" class="secondary">Скачать приложение</a>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
